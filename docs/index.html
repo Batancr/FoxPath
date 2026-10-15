@@ -22,7 +22,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: two-pane planner. Setup rail on the left, plan options + timeline + schematic map on the right. Phones get two tabs. */
 :root{
@@ -32,7 +31,7 @@
   --land:#E5EBE7; --water:#B7D4E3; --stop:#FFFFFF;
   --f-display:"Big Shoulders Display","Big Shoulders","Arial Narrow",Impact,sans-serif;
   --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --f-mono:var(--f-body);
   --r:10px;
 }
 @media (prefers-color-scheme: dark){
@@ -54,14 +53,14 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0}
 [hidden]{display:none!important}
 img{max-width:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.5}
 .app{max-width:1340px;margin:0 auto;padding-inline:16px;padding-block:14px 48px}
 h1,h2,h3{margin:0;text-wrap:balance}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* header */
-.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 16px;padding-block:4px 14px;border-bottom:2px solid var(--ink);margin-bottom:16px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 16px;padding-block:4px 12px;border-bottom:2px solid var(--ink);margin-bottom:12px}
 .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .brand h1{font-family:var(--f-display);font-weight:800;font-size:44px;line-height:.9;letter-spacing:.01em;text-transform:uppercase}
 .brand p{margin:0;color:var(--muted);font-size:14px}
@@ -69,14 +68,14 @@ button,input,select{font:inherit;color:inherit}
 .sched-bar.over{background:var(--danger-soft)}
 .sched-bar strong{color:var(--signal)}
 .sched-bar.over strong{color:var(--danger)}
-.bottomline{display:grid;gap:4px;padding:12px 14px;border-radius:var(--r);background:var(--accent-soft);border-left:4px solid var(--accent);font-size:15px;line-height:1.45}
+.bottomline{display:grid;gap:4px;padding:14px 16px;border-radius:14px;background:var(--accent-soft);font-size:16px;line-height:1.5}
 .bottomline .eyebrow{color:var(--accent)}
 .opt .why{font-size:12.5px;color:var(--accent);font-weight:700}
-.demo-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--signal-soft);color:var(--signal);font-size:13px;font-weight:700}
-.demo-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--signal)}
+.demo-pill{display:inline-flex;align-items:center;gap:8px;padding:0;background:none;color:var(--muted);font-size:13px;font-weight:400}
+.demo-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--signal);flex:none}
 
-.cities{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 16px}
-.cities button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 16px;cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.cities{display:flex;gap:4px;margin:0 0 14px;overflow-x:auto;scrollbar-width:none}
+.cities button{flex:none;border:0;background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
 .cities button:hover{border-color:var(--ink);color:var(--ink)}
 .cities button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .loading{padding:28px 4px;color:var(--muted)}
@@ -92,26 +91,27 @@ button,input,select{font:inherit;color:inherit}
 }
 
 /* labels + inputs */
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font-size:13px;font-weight:700;color:var(--muted)}
 .setup{display:grid;gap:12px}
-.block{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:10px;min-width:0}
-.block h2{font-family:var(--f-display);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em}
+.block{background:var(--surface);border:0;border-radius:14px;padding:16px;display:grid;gap:12px;min-width:0}
+.block h2{font-family:var(--f-display);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.03em}
+.subhead{font-size:15px;margin:6px 0 0}
 .field{display:grid;gap:4px;min-width:0}
 .field>span{font-size:13px;color:var(--muted)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .row3{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:end}
 .row3 .to{padding-bottom:10px;color:var(--muted);font-size:13px}
-input[type=text],input[type=number],input[type=time],select{width:100%;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-variant-numeric:tabular-nums}
+input[type=text],input[type=number],input[type=time],input[type=date],select{width:100%;min-width:0;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-variant-numeric:tabular-nums}
 input:focus,select:focus{border-color:var(--accent)}
-.hint{font-size:12.5px;color:var(--muted);margin:0}
+.hint{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
 
 .acts{display:grid;gap:10px;list-style:none;margin:0;padding:0}
-.act{border:1px solid var(--line);border-radius:var(--r);padding:12px;display:grid;gap:9px;background:var(--bg)}
+.act{border:0;border-radius:12px;padding:12px;display:grid;gap:10px;background:var(--bg)}
 .act-head{display:flex;align-items:center;gap:8px}
 .act-num{font-family:var(--f-display);font-weight:800;font-size:26px;line-height:1;width:28px;text-align:center;color:var(--accent);flex:none}
 .act-head input{font-weight:700}
-.icon-btn{border:1px solid var(--line);background:var(--surface);width:34px;height:36px;border-radius:8px;cursor:pointer;flex:none;display:grid;place-items:center;font-size:15px;line-height:1}
-.icon-btn:hover{border-color:var(--ink)}
+.icon-btn{border:0;background:transparent;color:var(--muted);width:34px;height:36px;border-radius:8px;cursor:pointer;flex:none;display:grid;place-items:center;font-size:15px;line-height:1}
+.icon-btn:hover{background:var(--surface-2);color:var(--ink)}
 .icon-btn:disabled{opacity:.35;cursor:default}
 .mins{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:end}
 details.limits summary{cursor:pointer;font-size:13px;color:var(--muted)}
@@ -131,19 +131,24 @@ details.more>summary h2{display:inline}
 details.more>summary h2::after{content:" +";color:var(--muted)}
 details.more[open]>summary h2::after{content:" −"}
 .durfield{display:grid;gap:6px}
+.durfield .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.durfield .chip{flex:none;padding:4px 10px}
 .durfield>label{font-size:13px;color:var(--muted)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 10px;font-size:13px;cursor:pointer;font-variant-numeric:tabular-nums}
 .chip:hover{border-color:var(--ink)}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .dur-note{font-size:12.5px;color:var(--muted)}
-.leg{display:grid;gap:6px;margin:-12px -12px 0;padding:8px 12px;background:var(--surface-2);border-bottom:1px dashed var(--line);border-radius:var(--r) var(--r) 0 0;font-size:13px}
-.block>.leg{margin:0;border:1px dashed var(--line);border-radius:8px}
-.leg-title{color:var(--muted)}
+.leg{margin:-4px 0 0;font-size:13.5px}
+.leg>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:2px 0}
+.leg>summary::-webkit-details-marker{display:none}
+.leg-title{color:var(--muted);min-width:0}
 .leg-title::before{content:"↓ ";color:var(--accent);font-weight:700}
-.leg.set{background:var(--accent-soft)}
-.leg.set .leg-title{color:var(--ink);font-weight:700}
-.leg-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.leg-title b{font-weight:700;color:var(--ink)}
+.leg-edit{color:var(--accent);font-weight:700;flex:none}
+.leg[open] .leg-edit{visibility:hidden}
+.leg.set .leg-title b{color:var(--accent)}
+.leg-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
 .leg-ctl select{width:auto;flex:1 1 150px;padding:6px 8px;font-size:13px}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
 .row-at{display:grid;grid-template-columns:minmax(110px,140px) 1fr;gap:10px;align-items:end}
@@ -151,7 +156,7 @@ details.more[open]>summary h2::after{content:" −"}
 .dur-note.bad{color:var(--danger)}
 .pick input.needs{border-color:var(--signal)}
 .ac-list li.is-cat .ac-t::before{content:"✦ ";color:var(--accent)}
-.board{display:flex;gap:10px;align-items:flex-start;margin-top:6px;padding:8px 10px;border-radius:8px;background:var(--surface-2);font-size:13px}
+.board{display:flex;gap:10px;align-items:flex-start;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--bg);font-size:13.5px}
 .board-arrow{width:22px;height:22px;flex:none;fill:var(--rc,var(--accent));margin-top:1px}
 .board .sv{display:block;margin-top:4px;color:var(--accent);font-weight:700;text-decoration:none}
 .mbar{display:none}
@@ -162,7 +167,7 @@ details.more[open]>summary h2::after{content:" −"}
   .mbar .go{padding:10px 14px;font-size:14px;white-space:nowrap}
   .app.view-setup{padding-bottom:90px}
 }
-.days{display:grid;gap:6px;padding-top:4px;border-top:1px dashed var(--line)}
+.days{display:grid;gap:6px;padding-top:10px;border-top:1px solid var(--surface-2)}
 .daychip{display:inline-flex}
 .daychip .chip:first-child{border-radius:999px 0 0 999px}
 .daychip .chip.x{border-radius:0 999px 999px 0;border-left:0;padding:5px 8px;color:var(--muted)}
@@ -178,7 +183,7 @@ details.more[open]>summary h2::after{content:" −"}
 .demo-bar{margin:-6px 0 14px;padding:8px 12px;border-radius:var(--r);background:var(--signal-soft);color:var(--ink);font-size:14px}
 .demo-bar a{color:var(--accent);font-weight:700}
 .sharebar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.gm-save{background:transparent;cursor:pointer;margin-left:6px;font:inherit;font-size:13px;font-weight:700}
+.gm-save{background:transparent;border:0;padding:0;cursor:pointer;margin-left:12px;font:inherit;font-size:13.5px;font-weight:700}
 .qchip{font:inherit;font-size:13px;cursor:pointer;color:var(--ink);text-align:left}
 .qchip:hover{border-color:var(--accent)}
 .act-num.grab{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -210,16 +215,18 @@ details.more[open]>summary h2::after{content:" −"}
 /* main */
 .main{display:grid;gap:16px;min-width:0}
 .status{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between}
-.status h2{font-family:var(--f-display);font-weight:800;font-size:30px;text-transform:uppercase;line-height:1}
-.status p{margin:0;color:var(--muted);font-size:13.5px}
+.status h2{font-family:var(--f-display);font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
+.status p{margin:0;color:var(--muted);font-size:13px}
 .options{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.opt{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:8px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:8px;align-content:start;background:var(--surface);border:2px solid transparent;border-radius:14px;padding:13px 15px}
 .opt:hover{border-color:var(--muted)}
-.opt[aria-pressed="true"]{border:2px solid var(--accent);padding:11px 13px}
+.opt[aria-pressed="true"]{border-color:var(--accent)}
 .opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.opt .tag{justify-self:start;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.opt .tag{justify-self:start;font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted)}
 .opt[aria-pressed="true"] .tag{background:var(--accent);color:var(--accent-ink)}
-.opt .span{font-family:var(--f-mono);font-weight:600;font-size:18px;font-variant-numeric:tabular-nums}
+.opt .span{font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.opt .stats{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:13px;color:var(--muted);padding-top:6px;border-top:1px solid var(--surface-2)}
+.opt .stats b{color:var(--ink);font-variant-numeric:tabular-nums}
 .opt dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13.5px}
 .opt dt{color:var(--muted)}
 .opt dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
@@ -227,13 +234,13 @@ details.more[open]>summary h2::after{content:" −"}
 
 .detail{display:grid;gap:16px;align-items:start}
 @media (min-width:1180px){.detail{grid-template-columns:minmax(0,1fr) minmax(300px,400px)}}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:0}
+.panel{background:var(--surface);border:0;border-radius:14px;padding:16px 18px;min-width:0}
 .panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;flex-wrap:wrap}
 
 /* timeline */
 .tl{list-style:none;margin:0;padding:0;position:relative}
-.tl li{display:grid;grid-template-columns:74px 18px minmax(0,1fr);gap:0 8px;position:relative;padding-block:7px}
-.tl time{font-family:var(--f-mono);font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;padding-top:1px;white-space:nowrap}
+.tl li{display:grid;grid-template-columns:66px 18px minmax(0,1fr);gap:0 8px;position:relative;padding-block:8px}
+.tl time{font-family:var(--f-body);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;padding-top:1px;white-space:nowrap}
 .tl .dot{position:relative}
 .tl .dot::before{content:"";position:absolute;left:8px;top:-7px;bottom:-7px;width:2px;background:var(--line)}
 .tl li:first-child .dot::before{top:10px}
@@ -248,12 +255,12 @@ details.more[open]>summary h2::after{content:" −"}
 .tl .sub{font-size:13px;color:var(--muted)}
 .tl .k-wait .main-line{color:var(--signal)}
 .route{display:inline-grid;place-items:center;min-width:26px;height:22px;padding:0 6px;border-radius:5px;background:var(--rc);color:#fff;font-family:var(--f-display);font-weight:800;font-size:16px;margin-right:6px;vertical-align:1px}
-.actbox{background:var(--accent-soft);border-radius:8px;padding:9px 11px;display:grid;gap:3px}
+.actbox{background:var(--accent-soft);border-radius:10px;padding:10px 12px;display:grid;gap:3px}
 .actbox .main-line{font-size:16px}
-.gm{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:700;text-decoration:none}
-.gm:hover{background:var(--accent);color:var(--accent-ink)}
-.gm-off{border-style:dashed;border-color:var(--line);color:var(--muted);font-weight:400}
-.dur{font-family:var(--f-mono);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.gm{display:inline-block;margin-top:4px;color:var(--accent);font-size:13.5px;font-weight:700;text-decoration:none}
+.gm:hover{text-decoration:underline;text-underline-offset:3px}
+.gm-off{color:var(--muted);font-weight:400}
+.dur{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 
 /* map */
 .map-wrap{display:grid;gap:10px}
@@ -271,6 +278,8 @@ details.more[open]>summary h2::after{content:" −"}
 .m-water-label{font-family:var(--f-body);font-size:10px;font-style:italic;fill:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center}
+.legend-wrap summary{cursor:pointer}
+.legend-wrap[open] summary{margin-bottom:8px}
 
 .notice{border-radius:var(--r);padding:14px 16px;background:var(--danger-soft);color:var(--ink);display:grid;gap:6px}
 .notice strong{color:var(--danger)}
@@ -294,10 +303,41 @@ details.more[open]>summary h2::after{content:" −"}
 .m-me-acc{fill:#1A73E8;fill-opacity:.15;stroke:#1A73E8;stroke-opacity:.4}
 @media (prefers-reduced-motion: no-preference){.m-me{animation:mepulse 2s ease-in-out infinite}}
 @keyframes mepulse{50%{stroke-width:5}}
+.board-links{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-top:6px}
+.board .sv{margin-top:0}
+.orient-btn{border-color:var(--accent);color:var(--accent);font-weight:700}
+.live-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.livebar .chip{background:transparent;color:var(--bg);border-color:var(--bg)}
+.orient{position:fixed;inset:0;z-index:50;display:grid;place-items:end center;background:rgba(0,0,0,.45);padding:12px}
+.orient-card{width:min(420px,100%);background:var(--surface);border-radius:16px;padding:16px;display:grid;gap:10px;justify-items:center;text-align:center;border:3px solid var(--line)}
+.orient-card.yes{border-color:var(--accent)}
+.orient-card.no{border-color:var(--danger)}
+.orient-top{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left}
+.orient-how{margin:0;font-size:15px}
+.orient-arrow{width:min(220px,60vw);height:auto}
+.orient-ring{fill:var(--surface-2);stroke:var(--line);stroke-width:2}
+.orient-path{fill:var(--muted)}
+.yes .orient-path{fill:var(--accent)}
+.no .orient-path{fill:var(--danger)}
+.orient-say{margin:0;font-size:19px;font-weight:700}
+.yes .orient-say{color:var(--accent)}
+.no .orient-say{color:var(--danger)}
 .foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);max-width:75ch}
 .foot p{margin:0 0 6px}
 .foot a{color:var(--accent)}
 @media (prefers-reduced-motion: no-preference){.opt,.icon-btn,.go{transition:border-color .15s, filter .15s}}
+@media (max-width:599px){
+  .brand h1{font-size:34px}
+  #city-sub{display:none}
+  .status p{display:none}
+  .options{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px;scrollbar-width:none}
+  .opt{scroll-snap-align:start}
+  .panel{padding:14px}
+  .tl li{grid-template-columns:62px 16px minmax(0,1fr);gap:0 6px}
+  .cities{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible}
+  .cities button{padding:6px 4px;font-size:15px}
+  .tl time{font-size:13px}
+}
 </style>
 
 <div class="app view-plans" id="app">
@@ -714,12 +754,13 @@ function solve(inp){
 // fastest of those days and say exactly which settings it bends, so there's always something to go on.
 function closestPlan(inp,reasons){
   const legSet=[...inp.acts.map(a=>a.leg),inp.end.leg].some(L=>L&&(L.walk||L.route||L.K));
+  // times bend first; how you travel (bus changes, routes, walking) bends only if times alone don't do it
   const steps=[
-    [inp.maxRides||legSet,c=>({...c,maxRides:0,acts:c.acts.map(a=>({...a,leg:{}})),end:{...c.end,leg:{}}}),'Ignores your limits on changing buses and on how to make each trip'],
     [inp.end.from>0||inp.end.to<1440+180,c=>({...c,end:{...c.end,from:0,to:1440+240}}),''],
     [inp.acts.some(a=>a.after!=null||a.by!=null),c=>({...c,acts:c.acts.map(a=>({...a,after:null,by:null}))}),'Ignores the time limits on your stops'],
     [inp.start.to<1380,c=>({...c,start:{...c.start,to:Math.max(c.start.to,1380)}}),''],
     [inp.maxWalk<20,c=>({...c,maxWalk:20}),'Walks up to 20 min to a bus stop'],
+    [inp.maxRides||legSet,c=>({...c,maxRides:0,acts:c.acts.map(a=>({...a,leg:{}})),end:{...c.end,leg:{}}}),'Ignores your limits on changing buses and on how to make each trip'],
     [true,c=>({...c,maxWalk:Math.max(c.maxWalk,30),walkDirect:600}),'Walks the whole way where no bus works'],
   ];
   let cur={...inp,goal:'early'};const bends=[];
@@ -896,8 +937,9 @@ function legRow(key,leg,fromV,toV){
   const opt=r=>`<option value="r:${esc(r.id)}"${L.how==='r:'+r.id?' selected':''}>Only ${r.mode==='rail'?'':'bus '}${esc(r.id)}${r.name&&r.name!==r.id?' · '+esc(r.name):''}</option>`;
   const walk=fp&&tp?walkMin(fp,tp):null;
   const set=L.how!=='any'||L.rides;
-  return `<div class="leg${set?' set':''}" role="group" aria-label="Getting here">
-    <span class="leg-title">${fromV?`Getting here from ${short(placeName(fromV))||'the last stop'}`:'Getting here'}</span>
+  const now=L.how==='walk'?'walk only':L.how.startsWith('r:')?`only ${(BUNDLE.routes[L.how.slice(2)]||{}).mode==='rail'?'':'bus '}${esc(L.how.slice(2))}`:L.rides==='1'?'1 bus, no change':L.rides==='2'?'up to 2 buses':'any bus or walk';
+  return `<details class="leg${set?' set':''}"${set||legOpen.has(key)?' open':''} data-leg="${key}">
+    <summary><span class="leg-title">${fromV?`From ${short(placeName(fromV))||'the last stop'}`:'Getting here'}: <b>${now}</b></span><span class="leg-edit">Change</span></summary>
     <div class="leg-ctl">
       <select id="leg-${key}-how" aria-label="How to get here">
         <option value="any"${L.how==='any'?' selected':''}>Any bus or walk</option>
@@ -912,8 +954,9 @@ function legRow(key,leg,fromV,toV){
       </select>
       ${set?`<button type="button" class="chip leg-reset" data-action="legreset" data-leg="${key}">Reset</button>`:''}
     </div>
-  </div>`;
+  </details>`;
 }
+const legOpen=new Set(); // trip settings rows the person opened, kept open across redraws
 const LEEWAYS=[[0,'Exactly'],[5,'±5 min'],[10,'±10 min'],[15,'±15 min']];
 function startTimeHTML(s){
   const at=s.start.mode==='at',lw=+s.start.leeway||0;
@@ -1047,7 +1090,7 @@ function renderSetup(){
     <div class="block quick">
       <h2>Type your day</h2>
       <textarea id="quick" rows="3" placeholder="e.g. ${esc(quickExample())}" spellcheck="false">${esc(s.quick||'')}</textarea>
-      <div class="quick-row"><button class="go" data-action="parse">Plan my day</button><span class="hint">Or set it up step by step below. Plans update as you change things.</span></div>
+      <div class="quick-row"><button class="go" data-action="parse">Plan my day</button><span class="hint">Or fill in the steps below. Plans update as you go.</span></div>
       <div id="quick-out">${quickOutHTML()}</div>
       <div class="days">
         <span class="eyebrow">Saved days</span>
@@ -1056,7 +1099,7 @@ function renderSetup(){
           ${savingDay?`<span class="dayname"><input type="text" id="dayname" placeholder="Name this day" value="${esc(savingDay.name||'')}" maxlength="40"><button type="button" class="chip on" data-action="savedayok">Save</button><button type="button" class="chip" data-action="savedaycancel">Cancel</button></span>`
             :`<button type="button" class="chip add" data-action="saveday">+ Save this day</button>`}
         </div>
-        <span class="hint">${s.days.length?'Tap a name to load it, or ▶ Now to plan it fresh from right now with today\'s buses.':'Save a day you plan often, like a study day, and load it in one tap. ▶ Now plans it fresh from right now.'}</span>
+        <span class="hint">${s.days.length?'Tap a name to load it, or ▶ Now to plan it from right now.':'Save a day you plan often to load it in one tap.'}</span>
       </div>
     </div>
     <div class="block">
@@ -1067,7 +1110,7 @@ function renderSetup(){
       </div>
       <p class="hint" id="date-note">${esc(dateNote(s))}</p>
       ${pickField('start',s.start.place,'From',false)}
-      <div class="chips"><button type="button" class="chip now" data-action="now">Leave now</button><button type="button" class="chip" data-action="here">Use my location</button><span class="hint" id="here-msg" role="status">${esc(hereMsg)}</span></div>
+      <div class="chips"><button type="button" class="chip now" data-action="now">Leave now</button><button type="button" class="chip" data-gonow title="Leave now with no arrival time and no time limits on stops. Bus and walking settings stay.">Go now, drop my times</button><button type="button" class="chip" data-action="here">Use my location</button><span class="hint" id="here-msg" role="status">${esc(hereMsg)}</span></div>
       ${startTimeHTML(s)}
     </div>
     <div class="block">
@@ -1098,8 +1141,8 @@ function renderSetup(){
       </div>
       <label class="field"><span>Walk instead of the bus when the walk is under (min)</span><input type="number" min="0" max="45" id="walkDirect" value="${esc(s.walkDirect)}"></label>
     </details>
-    <div class="block">
-      <h2>Your places</h2>
+    <details class="block more places"${s.placesOpen||pendingSave?' open':''}>
+      <summary><h2>Your places and data</h2></summary>
       ${acField('home','Home',s.addr.home,s.custom.home)}
       ${acField('work',WORK_LABEL(),s.addr.work,s.custom.work)}
       ${pendingSave&&!pendingSave.editId?'':acField('new','Save another place','',null)}
@@ -1107,14 +1150,12 @@ function renderSetup(){
       ${(s.custom.saved||[]).length?`<ul class="saved">${s.custom.saved.map(p=>pendingSave&&pendingSave.editId===p.id?`<li class="editing">${saveForm()}</li>`
         :`<li><div><strong>${esc(p.n)}</strong><span>${esc(typeName(p.type))}${p.stay&&p.stay.min?' · usually '+esc(DayParse.fmtRange(p.stay.min,p.stay.max??'')):''} · ${esc(p.sub)}</span></div><span class="saved-btns"><button class="icon-btn" data-action="editplace" data-pid="${p.id}" aria-label="Rename ${esc(p.n)}" title="Rename or change type">✎</button><button class="icon-btn" data-action="unsave" data-pid="${p.id}" aria-label="Remove ${esc(p.n)}">✕</button></span></li>`).join('')}</ul>`:''}
       <p class="hint">Type part of an address or a business name, like "561" or "KFC", and pick a suggestion; the closest come first. Suggestions come from <a href="https://photon.komoot.io" target="_blank" rel="noopener">Photon</a> using <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> data, so what you type is sent to that service. Your places are saved only in this browser.</p>
-    </div>
-    <div class="block">
-      <h2>Your data</h2>
+      <h3 class="subhead">Your data</h3>
       <p class="hint">Your places, saved days and settings live only in this browser. Back them up to move them to another browser or device, or to keep them safe if you clear your browsing data.</p>
       <div class="chips"><button type="button" class="chip" data-action="backup">Download a backup</button><label class="chip filechip">Restore from a backup<input type="file" id="restore" accept="application/json,.json" hidden></label></div>
       <span class="hint" id="data-msg" role="status">${esc(dataMsg)}</span>
       ${DEMO?'':`<a class="hint demo-link" href="?demo#${store.city}">See an example day</a>`}
-    </div>`;
+    </details>`;
 }
 function readSetup(){
   const v=id=>document.getElementById(id)?.value??'';
@@ -1144,6 +1185,7 @@ function readSetup(){
   state.rides=v('rides')||state.rides||'any';
   state.quick=v('quick');
   state.moreOpen=!!document.querySelector('details.more')?.open;
+  state.placesOpen=!!document.querySelector('details.places')?.open;
   state.maxWalk=num('maxWalk',8);state.buffer=num('buffer',2);state.walkDirect=num('walkDirect',12);
   save();
 }
@@ -1205,7 +1247,7 @@ function boardHelp(st){
     :`<strong>Wait on the ${side} side of the street.</strong> The bus will be heading ${compass(deg)}, toward ${esc(toward)}. If you're on the other side, cross first: buses there go the opposite way.`;
   return `<div class="board"><svg class="board-arrow" viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(${Math.round(deg)}deg)"><path d="M12 3l6 9h-4v9h-4v-9H6z"/></svg>
     <div>${say}
-    <a class="sv" href="${sv}" target="_blank" rel="noopener">See this stop in Street View ↗</a></div></div>`;
+    <span class="board-links"><button type="button" class="chip orient-btn" data-orient="${Math.round(deg)}" data-label="${esc(tr.r.id)} toward ${esc(toward)} at ${esc(s0.n)}" data-rail="${rail?1:0}">Orient myself</button><a class="sv" href="${sv}" target="_blank" rel="noopener">Street View ↗</a></span></div></div>`;
 }
 function gq(p){if(p.id==='home')return state.addr.home||null;if(p.id==='work')return state.addr.work||null;return p.q;}
 // a stop picked by the app (like a restaurant) can be saved straight from the plan
@@ -1302,7 +1344,8 @@ function optionCard(pick,i,inp){
     <span class="span">${fmt(p.start)} → ${fmt(p.end)}</span>
     ${(w=>w?`<span class="why">${esc(w)}</span>`:'')(whyLine(i,inp))}
     ${inp.start.at==null&&!inp.free&&p.start-inp.start.from>=10?`<span class="picked">Stay ${fmtDur(p.start-inp.start.from)} more before you leave</span>`:''}
-    <dl>${actRows}<dt>Waiting</dt><dd>${fmtDur(p.wait)}</dd><dt>Walking</dt><dd>${fmtDur(p.walk)}</dd><dt>Bus changes</dt><dd>${p.transfers}</dd></dl>
+    <dl>${actRows}</dl>
+    <span class="stats"><span><b>${fmtDur(p.wait)}</b> waiting</span><span><b>${fmtDur(p.walk)}</b> walking</span><span><b>${p.transfers}</b> bus change${p.transfers===1?'':'s'}</span></span>
     ${order}${picked.length?`<div class="picked">App picked: ${picked.join(', ')}</div>`:''}
   </button>`;
 }
@@ -1312,7 +1355,8 @@ function renderMain(){
   if(!result){m.innerHTML='';return;}
   if(!result.ok){
     m.innerHTML=`<div class="status"><h2>No plan fits yet</h2></div>
-      <div class="notice"><strong>Here's what's blocking it</strong><ul>${result.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>
+      <div class="notice"><strong>Here's what's blocking it</strong><ul>${result.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+        ${result.inp&&result.inp.acts.length&&result.inp.acts.every(a=>a.place)&&!result.inp.free?'<div class="chips"><button type="button" class="chip on" data-gonow>Go now, drop my times</button></div>':''}</div>
       <div class="panel">${mapHTML(null)}</div>`;
     drawMe();updateLive();
     return;
@@ -1321,6 +1365,7 @@ function renderMain(){
   const bend=result.closest?`<div class="notice bend" role="status"><strong>Nothing fits all your settings, so here ${result.picks.length>1?'are the closest plans':'is the closest plan'}, fastest first.</strong>
       <span>To make it work, ${result.picks.length>1?'these plans bend':'this plan bends'} some settings:</span>
       <ul>${result.bends.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
+      <div class="chips"><button type="button" class="chip on" data-gonow>Go now, drop my times</button></div>
       ${result.reasons.length?`<details><summary>Why nothing fit</summary><ul>${result.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></details>`:''}</div>`:'';
   m.innerHTML=`
     <div class="status"><h2>${result.closest?'Closest plan':`${result.picks.length} plan${result.picks.length>1?'s':''} for your day`}</h2>
@@ -1397,7 +1442,7 @@ function mapHTML(plan){
   return `<div class="map-wrap"><div class="panel-head"><span class="eyebrow">${esc(BUNDLE.mapTitle||BUNDLE.name+' transit routes')}</span><button type="button" class="chip" data-loc aria-pressed="${me.watch!=null}">${me.watch!=null?'Hide where I am':'◉ Where am I?'}</button><span class="hint">${plan?'S start · numbers are your stops · E end · dotted lines are walks':esc(BUNDLE.mapNote||'Bus route lines')}</span></div>
     <svg class="map-svg" viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" role="img" aria-label="Map of ${esc(BUNDLE.name)} bus routes${plan?' with the selected plan highlighted':''}">${g}<g id="me-dot"></g></svg>
     <span class="hint" id="me-msg" role="status"></span>
-    <div class="legend">${legend}</div></div>`;
+    ${ROUTES.length>12?`<details class="legend-wrap"><summary class="hint">Route colours (${ROUTES.length} routes)</summary><div class="legend">${legend}</div></details>`:`<div class="legend">${legend}</div>`}</div>`;
 }
 
 /* ---------- events ---------- */
@@ -1455,7 +1500,9 @@ $('#setup').addEventListener('change',e=>{
   if(e.target.id==='reorder'||e.target.id==='endflex'||e.target.id==='rides'||e.target.id.startsWith('leg-')||e.target.id==='maxWalk'){save();renderSetup();}
   schedulePlan(150);
 });
+$('#setup').addEventListener('toggle',e=>{const d=e.target;if(d.classList&&d.classList.contains('leg')){d.open?legOpen.add(d.dataset.leg):legOpen.delete(d.dataset.leg);}},true);
 $('#setup').addEventListener('click',e=>{
+  if(e.target.closest('[data-gonow]')){e.preventDefault();goNow();return;}
   const j=e.target.closest('[data-jump]');
   if(j){const el=document.getElementById(j.dataset.jump);if(el){el.scrollIntoView({block:'center',behavior:'smooth'});el.focus({preventScroll:true});}return;}
   const b=e.target.closest('[data-action]');if(!b)return;
@@ -1482,7 +1529,7 @@ $('#setup').addEventListener('click',e=>{
     case 'flen':{const q=state.free.places.find(x=>x.id===b.dataset.fid);if(q)q.len=b.dataset.v;break;}
     case 'freenow':{const d=new Date(),m=Math.ceil((d.getHours()*60+d.getMinutes())/5)*5;state.free.at=`${pad2(Math.floor(m/60)%24)}:${pad2(m%60)}`;state.date=isoDate(d);break;}
     case 'free2plan':freeToPlanner();window.scrollTo({top:0,behavior:'smooth'});break;
-    case 'legreset':{const k=b.dataset.leg;if(k==='end')state.end.leg=null;else{const a=state.acts.find(x=>x.id===k);if(a)a.leg=null;}break;}
+    case 'legreset':{const k=b.dataset.leg;legOpen.delete(k);if(k==='end')state.end.leg=null;else{const a=state.acts.find(x=>x.id===k);if(a)a.leg=null;}break;}
     case 'unsave':{const id=b.dataset.pid;state.custom.saved=state.custom.saved.filter(p=>p.id!==id);
       state.acts.forEach(a=>{if(a.place===id)a.place='';});['start','end'].forEach(k=>{if(state[k].place===id)state[k].place='home';});
       setCustomPlaces(state.custom);break;}
@@ -1803,6 +1850,17 @@ function updateBar(){
     :`<div><span class="eyebrow">${result.inp&&result.inp.free?'Free day':'No plan fits yet'}</span><strong>${esc((result.reasons||[''])[0]).slice(0,90)}</strong></div><button class="go" data-bar="see">Why</button>`;
 }
 
+/* ---------- go now: drop every time setting, keep everything else ---------- */
+function goNow(){
+  if(state.mode==='free')return;
+  readSetup();leaveNow();
+  state.start={...state.start,mode:'range'};
+  state.end={...state.end,flex:true};
+  state.acts=state.acts.map(a=>({...a,after:'',by:''}));
+  if(!String(state.goal).startsWith('max:'))state.goal='smooth';
+  quickInfo={notes:['Leaving now with no set arrival time and no time limits on stops. Your stops, how long you stay, bus changes and walking settings are kept.']};
+  save();renderSetup();run();
+}
 /* ---------- where am I, and the live trip ---------- */
 const me={watch:null,pos:null,err:''};
 const live={on:false,timer:null,scrolled:false};
@@ -1869,9 +1927,98 @@ function updateLive(){
       else lines.push(`<span>You're about ${w} min walk from the stop: on track.</span>`);
     }else if(me.watch!=null&&!me.pos)lines.push(`<span>${esc(me.err||'Finding you…')}</span>`);
   }
+  if(now<p.end){
+    const btns=[];
+    if(nr){const tr=NET.trips[nr.trip],deg=rideBearing(tr,nr.a??tr.ids.indexOf(nr.from));
+      if(deg!=null)btns.push(`<button type="button" class="chip" data-orient="${Math.round(deg)}" data-label="${esc(tr.r.id)} at ${esc(NET.stops[nr.from].n)}" data-rail="${tr.r.mode==='rail'?1:0}">Orient myself</button>`);}
+    btns.push('<button type="button" class="chip" data-replan>Missed it? Re-plan from here</button>');
+    lines.push(`<span class="live-btns">${btns.join('')}</span>`);
+  }
   bar.hidden=false;bar.innerHTML=lines.join('');
 }
+/* ---------- missed a bus: plan the rest of the day from where you are, right now ---------- */
+function waitForPos(ms){
+  if(me.pos&&Date.now()-me.pos.t<120000)return Promise.resolve(me.pos);
+  locStart();
+  return new Promise(res=>{const t0=Date.now();const iv=setInterval(()=>{if(me.pos||Date.now()-t0>ms){clearInterval(iv);res(me.pos);}},250);});
+}
+async function replanHere(){
+  if(!result||!result.ok)return;
+  const p=result.picks[selected].p,inp=result.inp,now=nowMin();
+  const bar=$('#livebar');if(bar){bar.hidden=false;bar.innerHTML='<strong>Finding you and re-planning…</strong>';}
+  const pos=await waitForPos(8000);
+  const ahead=p.order.map((oi,k)=>({id:inp.acts[oi].id,s:p.legs[k].s,to:p.legs[k].to})).filter(x=>x.s>now);
+  const reached=p.order.map((oi,k)=>({s:p.legs[k].s,to:p.legs[k].to})).filter(x=>x.s<=now);
+  let from=null,fromName='';
+  if(pos&&Math.hypot(pos.x,pos.y)<30){state.custom.here={lon:pos.lon,lat:pos.lat,t:Date.now()};setCustomPlaces(state.custom);from='here';fromName='where you are';}
+  else if(reached.length){const q=reached[reached.length-1].to;from=q.id;fromName=q.n;}
+  const keep=new Set(ahead.map(x=>x.id));
+  if(inp.free){
+    state.free.places=state.free.places.filter(q=>keep.has(q.id));
+    if(from){state.free.start=from;}
+    const d=new Date(),m=Math.ceil((d.getHours()*60+d.getMinutes())/5)*5;state.free.at=`${pad2(Math.floor(m/60)%24)}:${pad2(m%60)}`;state.date=isoDate(d);
+  }else{
+    // stops the app picked for you (like a restaurant) stay as picked, so the plan doesn't change them under you
+    state.acts=state.acts.filter(a=>keep.has(a.id)).map(a=>{const x=ahead.find(y=>y.id===a.id);return a.place.startsWith('any:')&&x&&placeById[x.to.id]?{...a,place:x.to.id}:a;});
+    if(from)state.start.place=from;
+    leaveNow();
+    if(String(state.goal).startsWith('max:')&&!state.acts.some(a=>'max:'+a.id===state.goal))state.goal='smooth';
+  }
+  quickInfo={notes:[`Re-planned from ${fromName||placeName(inp.free?state.free.start:state.start.place)}, leaving now${ahead.length?`, with ${ahead.length} stop${ahead.length>1?'s':''} left`:', straight to the end'}.${pos?'':' Location was not available, so this starts from the last place on your plan.'}`]};
+  save();renderSetup();live.scrolled=false;run();
+}
+/* ---------- orient myself: point your phone along the road and check the bus goes that way ---------- */
+const orient={deg:null,label:'',rail:false,h:null,vx:0,vy:0,got:false,err:'',timer:null};
+function orientHandler(e){
+  let h=null;
+  if(typeof e.webkitCompassHeading==='number'&&!isNaN(e.webkitCompassHeading))h=e.webkitCompassHeading; // iPhone: degrees clockwise from north
+  else if(e.absolute&&e.alpha!=null)h=360-e.alpha; // Android: alpha turns counterclockwise from north
+  if(h==null)return;
+  h=(h+((screen.orientation&&screen.orientation.angle)||0)+360)%360;
+  // smooth the jitter: average as a direction, not as a number (so 359° and 1° average to 0°)
+  const r=h*Math.PI/180;orient.vx=orient.got?orient.vx*0.75+Math.sin(r)*0.25:Math.sin(r);orient.vy=orient.got?orient.vy*0.75+Math.cos(r)*0.25:Math.cos(r);
+  orient.h=(Math.atan2(orient.vx,orient.vy)*180/Math.PI+360)%360;orient.got=true;orientDraw();
+}
+async function orientOpen(deg,label,rail){
+  Object.assign(orient,{deg,label,rail,h:null,got:false,err:''});
+  let el=$('#orient');
+  if(!el){el=document.createElement('div');el.id='orient';el.className='orient';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Orient myself');document.body.appendChild(el);
+    el.addEventListener('click',ev=>{if(ev.target.closest('[data-orient-close]')||ev.target===el)orientClose();});}
+  el.hidden=false;orientDraw();
+  try{
+    if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+      const r=await DeviceOrientationEvent.requestPermission();
+      if(r!=='granted'){orient.err="Compass access was not allowed. Look for motion and orientation access in your browser's settings, then try again.";orientDraw();return;}
+    }
+  }catch(e){orient.err="This browser wouldn't share the compass. Use the written directions and Street View instead.";orientDraw();return;}
+  window.addEventListener('deviceorientationabsolute',orientHandler);window.addEventListener('deviceorientation',orientHandler);
+  clearTimeout(orient.timer);orient.timer=setTimeout(()=>{if(!orient.got){orient.err="No compass reading from this phone's browser. Use the written directions and Street View instead.";orientDraw();}},4000);
+}
+function orientClose(){
+  window.removeEventListener('deviceorientationabsolute',orientHandler);window.removeEventListener('deviceorientation',orientHandler);
+  clearTimeout(orient.timer);const el=$('#orient');if(el)el.hidden=true;
+}
+function orientDraw(){
+  const el=$('#orient');if(!el||el.hidden)return;
+  const has=orient.h!=null,diff=has?((orient.deg-orient.h+540)%360)-180:0,ad=Math.abs(diff);
+  const st=!has?'wait':ad<=45?'yes':ad>=135?'no':'turn';
+  const say={wait:orient.err?'':'Getting a compass reading…',
+    yes:orient.rail?'Right platform. Your train heads the way you\'re pointing.':'Right side. Your bus heads the way you\'re pointing, along the lane nearest you.',
+    no:orient.rail?'Other platform. Your train goes the opposite way.':'Wrong side. Your bus goes the opposite way: cross the street and wait there.',
+    turn:'Turn to point along the road.'}[st];
+  el.innerHTML=`<div class="orient-card ${st}">
+    <div class="orient-top"><strong>Orient myself</strong><button type="button" class="icon-btn" data-orient-close aria-label="Close">✕</button></div>
+    <p class="orient-how">${orient.rail?'Hold your phone flat and point its top along the tracks, the way you want to go.':'Hold your phone flat at the curb and point its top the way the cars nearest you are driving.'}</p>
+    ${orient.err&&!has?'':`<svg class="orient-arrow" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" class="orient-ring"/>
+      ${has?`<g transform="rotate(${diff.toFixed(1)} 50 50)"><path d="M50 10 L70 46 H58 V86 H42 V46 H30 Z" class="orient-path"/></g>`:''}</svg>`}
+    <p class="orient-say" role="status" aria-live="polite">${esc(orient.err||say)}</p>
+    <p class="hint">${esc(orient.label)}. ${has?'The arrow points the way your '+(orient.rail?'train':'bus')+' goes.':''} Compasses can be thrown off by cars, poles and shelters; if it jumps around, wave your phone in a figure 8 and try again.</p>
+  </div>`;
+}
 $('#main').addEventListener('click',e=>{
+  if(e.target.closest('[data-gonow]')){goNow();return;}
+  if(e.target.closest('[data-replan]')){replanHere();return;}
+  const ob=e.target.closest('[data-orient]');if(ob){orientOpen(+ob.dataset.orient,ob.dataset.label||'',ob.dataset.rail==='1');return;}
   if(e.target.closest('[data-loc]')){if(me.watch!=null){locStop();if(live.on)liveStop();else renderMain();}else{locStart();renderMain();}return;}
   if(e.target.closest('[data-live]')){live.on?liveStop():liveStart();return;}
   const sv=e.target.closest('[data-saveplace]');

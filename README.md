@@ -66,6 +66,15 @@ Newmarket and Waterloo, Ontario.
   bus change), and a line on each plan saying what it does better than the others
 - **Schedule warning**: a banner from 14 days before a city's schedule file runs out, and after
 - **Add to Home Screen**: FoxPaths can be installed on a phone with its own icon, and shared links show a preview card
+- **Orient myself**: next to each bus's "which side of the street" help, and in a live trip. Hold the phone flat at
+  the curb and point it the way the nearest cars are driving: the phone's compass tells you "Right side" (green) or
+  "Wrong side, cross the street" (red), with an arrow showing which way the bus goes. Phones that don't share a compass
+  reading with websites fall back to the written help and Street View
+- **Missed it? Re-plan from here**: during a live trip, one tap plans the rest of the day from where you are, leaving
+  now, with only the stops you haven't reached
+- **Go now, drop my times**: one tap removes every time setting (leave window, arrival time, stop time limits) and
+  plans from right now, keeping your stops, how long you stay, bus-change limits and walking settings. When nothing
+  fits, the closest plan also bends times first and how you travel last
 - **Which side of the street**: for every bus, which way it's heading, which side of the street to wait on (buses
   drive on the right, so the stop is on the right-hand side of travel), and a Street View link to the stop. For the
   ION light rail it names the platform direction instead

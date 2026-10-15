@@ -118,6 +118,20 @@ had added automatically. Phones most likely showed a shrunken desktop layout, an
 was caught on Oct 5 while testing at phone width over a local web server, and fixed. Lesson: test the real hosting
 setup, not only the preview.
 
+### 7. A missed bus, and a cleaner look (Oct 15)
+
+After missing a bus on the wrong side of the street, Alexander asked for **Orient myself**: point the phone along the
+road and have the site say whether the bus goes that way. It uses the browser's device orientation events
+(`deviceorientationabsolute` on Android, Safari's `webkitCompassHeading` after `DeviceOrientationEvent.requestPermission()`
+on iPhone), which need HTTPS and, on iPhone, a tap to allow. It shows green or red only within about 45° of the bus's
+direction or its opposite; that tolerance is a first guess to tune after real use. Not yet tested on a real phone.
+
+Also added: **Missed it? Re-plan from here** in live trips, and **Go now, drop my times**. The closest-plan search now
+bends times before bus-change limits, routes and walking, because Alexander would rather arrive later than break
+those. The design was tidied: fewer borders, sentence-case labels, trip settings folded into one line per stop,
+plans side by side and swipeable on phones, places and backup folded away, and one font fewer (times now use the body
+font).
+
 ## How changes are made
 
 1. In a chat, the person asks Claude to connect `~/FoxPaths` (Claude requests folder access and the person approves).
