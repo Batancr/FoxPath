@@ -132,6 +132,14 @@ those. The design was tidied: fewer borders, sentence-case labels, trip settings
 plans side by side and swipeable on phones, places and backup folded away, and one font fewer (times now use the body
 font).
 
+### 8. The app icon (Oct 15)
+
+FoxPaths got a fox logo, an original design: a geometric fox head shaped like a map pin (its snout is the pin's
+point) on a green tile, sitting on a white route line with a stop on each side. Drawn as SVG in
+`docs/icons/favicon.svg` and rendered to the PNG sizes with headless Chromium. A "Get the app" button uses Chrome's
+`beforeinstallprompt` where it exists and shows written steps elsewhere (iPhone has no install prompt for websites).
+It hides when FoxPaths is already running from the home screen. No service worker, so new schedules always arrive.
+
 ## How changes are made
 
 1. In a chat, the person asks Claude to connect `~/FoxPaths` (Claude requests folder access and the person approves).
@@ -224,7 +232,7 @@ Time-sensitive: YRT's schedule file ends Oct 31, 2026. A new file from YRT is th
 | --- | --- |
 | `docs/index.html` | The whole site: styles, the planning engine (`<script id="engine">`) and the interface. |
 | `docs/dayparse.js` | The "Type your day" sentence reader. |
-| `docs/manifest.webmanifest`, `docs/icons/` | Home-screen install details, app icons and the link preview image (made with Pillow; an original mark, not a logo from elsewhere). |
+| `docs/manifest.webmanifest`, `docs/icons/` | Home-screen install details, the fox logo (`favicon.svg` is the master; PNGs are rendered from it) and the link preview image. |
 | `docs/data/<city>.js` | Generated city data. Don't edit by hand. |
 | `tools/build_peterborough.py` | Builds Peterborough from the City's files, with timepoint interpolation. |
 | `tools/gtfs_city.py` | General GTFS reader used by the other city builders. |

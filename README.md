@@ -65,7 +65,10 @@ Newmarket and Waterloo, Ontario.
 - **Bottom line and why**: a short summary above the plans (when to leave, your time at the main stop, the tightest
   bus change), and a line on each plan saying what it does better than the others
 - **Schedule warning**: a banner from 14 days before a city's schedule file runs out, and after
-- **Add to Home Screen**: FoxPaths can be installed on a phone with its own icon, and shared links show a preview card
+- **Get the app**: a "Get the app" button installs FoxPaths on the home screen with its own fox icon. Chrome, Edge
+  and Samsung Internet show their install prompt; iPhone, Android menus, Safari on Mac and desktop browsers get
+  step-by-step instructions. It opens full screen like an app, with no app store and no cost. Shared links show a
+  preview card
 - **Orient myself**: next to each bus's "which side of the street" help, and in a live trip. Hold the phone flat at
   the curb and point it the way the nearest cars are driving: the phone's compass tells you "Right side" (green) or
   "Wrong side, cross the street" (red), with an arrow showing which way the bus goes. Phones that don't share a compass
