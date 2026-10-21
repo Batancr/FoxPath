@@ -6,9 +6,9 @@
 <title>FoxPaths Peterborough</title>
 <meta name="theme-color" content="#0A6B4D">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png?v=2">
+<link rel="apple-touch-icon" href="icons/icon-180.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="FoxPaths">
@@ -18,7 +18,7 @@
 <meta property="og:title" content="FoxPaths: plan a whole day of stops around the bus">
 <meta property="og:description" content="Tell it where you want to go and for how long. FoxPaths works out the buses, walks and waits in Peterborough, Newmarket and Waterloo, Ontario.">
 <meta property="og:url" content="https://batancr.github.io/FoxPaths/">
-<meta property="og:image" content="https://batancr.github.io/FoxPaths/icons/preview.png">
+<meta property="og:image" content="https://batancr.github.io/FoxPaths/icons/preview.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="FoxPaths: plan a whole day of stops around the bus">
@@ -356,7 +356,7 @@ details.more[open]>summary h2::after{content:" −"}
 <div class="app view-plans" id="app">
   <header class="top">
     <div class="brand">
-      <img class="brand-logo" src="icons/favicon.svg" alt="" width="40" height="40">
+      <img class="brand-logo" src="icons/favicon.svg?v=2" alt="" width="40" height="40">
       <h1>FoxPaths</h1>
       <p id="city-sub">Plan a whole day of stops around the bus</p>
     </div>
@@ -2207,7 +2207,7 @@ function openInstall(){
     el.addEventListener('click',ev=>{if(ev.target.closest('[data-install-close]')||ev.target===el)closeInstall();});}
   el.innerHTML=`<div class="orient-card">
     <div class="orient-top"><strong>Get the FoxPaths app</strong><button type="button" class="icon-btn" data-install-close aria-label="Close">✕</button></div>
-    <img src="icons/icon-192.png" alt="FoxPaths icon" width="72" height="72">
+    <img src="icons/icon-192.png?v=2" alt="FoxPaths icon" width="72" height="72">
     <p class="orient-how">Add FoxPaths to your home screen and it opens like an app: full screen, its own icon, no browser bars. It's free and nothing is downloaded from an app store.</p>
     <ol>${steps.map(x=>`<li>${x}</li>`).join('')}</ol>
     <p class="hint">Your saved places and days stay on this device. On iPhone the home-screen app may start without them, because iOS can keep its storage separate from Safari. If so, use Download a backup in Safari, then Restore in the app (both under Your places and data).</p>
