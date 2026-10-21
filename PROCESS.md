@@ -137,7 +137,9 @@ font).
 FoxPaths got a fox logo, an original design: a geometric fox head shaped like a map pin (its snout is the pin's
 point). On Oct 21 Alexander asked for it to look like a game character travelling a route (his comparison: the
 Oregon Trail), so the final icon is a smaller fox walking along the thick white route from the first icon, from a
-start stop past a middle stop to the amber end-of-day square, with speed marks behind it. Icon URLs carry `?v=2` so
+start stop past a middle stop to the amber end-of-day square, with speed marks behind it. The same day he asked for the fox
+to sit on the path itself, so the current icon has the fox standing in the bottom stretch of the route like a game
+piece, the white line passing behind it and a thin green outline keeping the two apart. Icon URLs carry `?v=3` so
 browsers fetch the new picture. Drawn as SVG in
 `docs/icons/favicon.svg` and rendered to the PNG sizes with headless Chromium. A "Get the app" button uses Chrome's
 `beforeinstallprompt` where it exists and shows written steps elsewhere (iPhone has no install prompt for websites).
